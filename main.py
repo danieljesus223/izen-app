@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # --- CONFIGURAÇÃO DO LINK ---
-link_app = "https://izen-app.streamlit.app"  # Certifique-se de que este é o seu link oficial
+link_app = " danieljesus223-izen-app-main-9nbdh" # Certifique-se de que este é o seu link oficial
  
  # --- BARRA LATERAL (SIDEBAR) CORRIGIDA ---
 with st.sidebar:
