@@ -4,7 +4,6 @@ import pandas as pd
 # --- CONFIGURAÇÃO DO LINK ---
 link_app = "https://izen-app.streamlit.app"  # Certifique-se de que este é o seu link oficial
  v2.0")
-
  # --- BARRA LATERAL (SIDEBAR) CORRIGIDA ---
 with st.sidebar:
     st.markdown("<h2 style='text-align: center;'>🛡️ IZEN</h2>", unsafe_allow_html=True)
