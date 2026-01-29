@@ -130,9 +130,9 @@ st.markdown("### 💎 Planos de Assessoria")
 c1, c2, c3 = st.columns(3)
 
 # Links de Pagamento (Substitua pelos seus links reais do PagBank/Mercado Pago)
-link_pago_essencial = "SUBSTITUA_PELO_LINK_R147"
-link_pago_popular = "SUBSTITUA_PELO_LINK_R247"
-link_pago_full = "SUBSTITUA_PELO_LINK_R397"
+link_pago_essencial = "https://pag.ae/81sCwqFwa"
+link_pago_popular = "https://pag.ae/81sCBaYTR"
+link_pago_full = "https://pag.ae/81sCCiZMa"
 
 with c1:
     st.markdown("""
