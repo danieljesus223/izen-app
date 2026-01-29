@@ -1,6 +1,35 @@
 import streamlit as st
 import pandas as pd
 
+
+# Botão Flutuante do WhatsApp
+st.markdown(f'''
+    <style>
+    .float-wa {{
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25d366;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }}
+    </style>
+    <a href="{meu_whatsapp}" class="float-wa" target="_blank">
+        <img src="https://img.icons8.com/color/48/whatsapp--v1.png" width="35"/>
+    </a>
+''', unsafe_allow_html=True)
+
+
 # Configuração de Alta Qualidade
 st.set_page_config(page_title="IZEN - Inteligência Financeira", page_icon="🛡️", layout="centered")
 
