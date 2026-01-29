@@ -1,22 +1,38 @@
 import streamlit as st
 import pandas as pd
 
-# --- SEÇÃO DE INSTALAÇÃO ---
-with st.expander("📲 Como instalar o IZEN no seu celular (Grátis)"):
-    st.markdown("""
-        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 15px;">
-            <p>Para acessar o IZEN como um aplicativo nativo e ter o diagnóstico sempre à mão:</p>
-            <p><b>No iPhone (Safari):</b> Clique no ícone de compartilhar <img src="https://img.icons8.com/ios/50/ffffff/sent.png" width="15"/> e depois em <b>'Adicionar à Tela de Início'</b>.</p>
-            <p><b>No Android (Chrome):</b> Clique nos três pontinhos <img src="https://img.icons8.com/ios-glyphs/30/ffffff/menu-2.png" width="15"/> no canto superior e selecione <b>'Instalar aplicativo'</b> ou <b>'Adicionar à tela inicial'</b>.</p>
-        </div>
-    """, unsafe_allow_html=True)
 
-# --- BOTÃO "BAIXAR" VISUAL ---
-st.write("")
-if st.button("📥 Gerar Atalho de Aplicativo"):
-    st.toast("Siga as instruções acima para instalar!", icon="📲")
-    st.info("O IZEN é um Web App Seguro. Você não precisa baixar arquivos pesados, basta adicionar o atalho à sua tela inicial.")
+    # --- BARRA LATERAL (SIDEBAR) ---
+with st.sidebar:
+    st.markdown("<h2 style='text-align: center;'>🛡️ IZEN</h2>", unsafe_allow_html=True)
+    st.markdown("---")
     
+    st.markdown("### 📲 Instalar App")
+    st.write("Tenha a nossa consultoria de bolso sempre disponível na sua tela inicial.")
+    
+    # Instruções Visuais dentro da lateral
+    with st.expander("Como instalar?", expanded=False):
+        st.markdown("""
+            **No iPhone:**
+            1. Abra no Safari
+            2. Clique em **Compartilhar** ⬆️
+            3. **Adicionar à Tela de Início**
+            
+            **No Android:**
+            1. Clique nos **3 pontos** ⋮
+            2. **Instalar aplicativo** ou **Adicionar à tela inicial**
+        """)
+    
+    st.write("---")
+    st.markdown("### 📞 Suporte Direto")
+    st.info("Dúvidas técnicas? Use o botão do WhatsApp na tela principal ou fale conosco por aqui.")
+    
+    # Botão de Download Visual na lateral
+    if st.sidebar.button("📥 Gerar Atalho"):
+        st.toast("Siga as instruções acima!")
+
+# --- FIM DA BARRA LATERAL ---
+
 
 # Configuração de Página Premium
 st.set_page_config(page_title="IZEN - Assessoria Fiscal", page_icon="🛡️", layout="centered")
