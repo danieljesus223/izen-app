@@ -5,7 +5,16 @@ import pandas as pd
 link_app = "https://danieljesus223-izen-app-main-9nbdh.streamlit.app" 
 
 # --- CONFIGURAÇÃO DA PÁGINA (Deve vir antes de quase tudo) ---
-st.set_page_config(page_title="IZEN - Assessoria Fiscal", page_icon="🛡️", layout="centered")
+
+# --- HEADER COM LOGO ---
+col_logo1, col_logo2, col_logo3 = st.columns([1, 2, 1])
+with col_logo2:
+    try:
+        st.image("logo.png", use_container_width=True)
+    except:
+        st.markdown("<h1 style='text-align: center; color: white;'>🛡️ IZEN</h1>", unsafe_allow_html=True)
+
+st.markdown("<p style='text-align: center; color: #888; font-weight: 600;'>Diagnóstico de Isenção e Assessoria IRPF</p>", unsafe_allow_html=True)
 
 # --- BARRA LATERAL (SIDEBAR) ---
 with st.sidebar:
