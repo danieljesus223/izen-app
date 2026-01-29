@@ -44,8 +44,6 @@ with st.sidebar:
     st.caption("v2.1.0 | 2026 © IZEN")
 
     
-    
-
 
 # Configuração de Página Premium
 st.set_page_config(page_title="IZEN - Assessoria Fiscal", page_icon="🛡️", layout="centered")
