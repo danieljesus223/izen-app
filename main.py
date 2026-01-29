@@ -1,6 +1,23 @@
 import streamlit as st
 import pandas as pd
 
+# --- SEÇÃO DE INSTALAÇÃO ---
+with st.expander("📲 Como instalar o IZEN no seu celular (Grátis)"):
+    st.markdown("""
+        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 15px;">
+            <p>Para acessar o IZEN como um aplicativo nativo e ter o diagnóstico sempre à mão:</p>
+            <p><b>No iPhone (Safari):</b> Clique no ícone de compartilhar <img src="https://img.icons8.com/ios/50/ffffff/sent.png" width="15"/> e depois em <b>'Adicionar à Tela de Início'</b>.</p>
+            <p><b>No Android (Chrome):</b> Clique nos três pontinhos <img src="https://img.icons8.com/ios-glyphs/30/ffffff/menu-2.png" width="15"/> no canto superior e selecione <b>'Instalar aplicativo'</b> ou <b>'Adicionar à tela inicial'</b>.</p>
+        </div>
+    """, unsafe_allow_html=True)
+
+# --- BOTÃO "BAIXAR" VISUAL ---
+st.write("")
+if st.button("📥 Gerar Atalho de Aplicativo"):
+    st.toast("Siga as instruções acima para instalar!", icon="📲")
+    st.info("O IZEN é um Web App Seguro. Você não precisa baixar arquivos pesados, basta adicionar o atalho à sua tela inicial.")
+    
+
 # Configuração de Página Premium
 st.set_page_config(page_title="IZEN - Assessoria Fiscal", page_icon="🛡️", layout="centered")
 
