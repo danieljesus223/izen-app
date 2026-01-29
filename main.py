@@ -103,7 +103,7 @@ st.markdown("<p style='text-align: center; font-size: 0.8em; color: gray; margin
 
 
 # Certifique-se de colocar o seu número onde diz SEUNUMERO (ex: 5511999999999)
-seu_numero_limpo = "5543991533162 # Apenas números: Código País + DDD + Número
+seu_numero_limpo = "5543991533162" # Apenas números: Código País + DDD + Número
 mensagem_automatica = "Olá! Tenho uma dúvida sobre o IZEN."
 
 # Criando o link correto para mobile
