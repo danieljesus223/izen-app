@@ -53,10 +53,21 @@ with st.expander("🔍 Ver Regras da Receita Federal"):
     | **Comércio e Indústria** | 8% do faturamento bruto |
     """)
 
-# Seção de Venda (Call to Action)
+# Seção de Venda Profissional
 st.divider()
-st.write("### 🚀 Quer o relatório pronto para o IRPF?")
-if st.button("GERAR DECLARAÇÃO COMPLETA (PDF)"):
-    st.balloons()
-    st.info("O IZEN Pro gera o passo a passo da sua Declaração de IR por apenas **R$ 29,90**.")
-    st.write("**PIX de Pagamento:** `seu-email-ou-chave-aqui` ")
+st.markdown("### 🚀 Liberar Relatório IZEN Pro")
+st.write("Receba o guia passo a passo com os campos exatos para preencher sua declaração de IR sem erros.")
+
+# O seu link do Asaas aqui
+link_asaas = "https://www.asaas.com/c/a0jhdkiofqnr886i" 
+
+# Botão Estilizado
+st.markdown(f'''
+    <a href="{link_asaas}" target="_blank" style="text-decoration: none;">
+        <div style="background-color: #0066FF; color: white; padding: 15px; text-align: center; border-radius: 10px; font-weight: bold; font-size: 18px;">
+            💎 BAIXAR RELATÓRIO AGORA
+        </div>
+    </a>
+''', unsafe_allow_html=True)
+
+st.caption("Pagamento seguro via Asaas (Pix ou Cartão)")
