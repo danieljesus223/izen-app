@@ -102,32 +102,19 @@ st.markdown(f'''
 st.markdown("<p style='text-align: center; font-size: 0.8em; color: gray; margin-top: 10px;'>Pagamento seguro via PagBank</p>", unsafe_allow_html=True)
 
 
+# Certifique-se de colocar o seu número onde diz SEUNUMERO (ex: 5511999999999)
+seu_numero_limpo = "5543991533162 # Apenas números: Código País + DDD + Número
+mensagem_automatica = "Olá! Tenho uma dúvida sobre o IZEN."
 
-# Botão Flutuante do WhatsApp
+# Criando o link correto para mobile
+link_whatsapp_final = f"https://wa.me/{seu_numero_limpo}?text={mensagem_automatica.replace(' ', '%20')}"
+
 st.markdown(f'''
-    <style>
-    .float-wa {{
-        position: fixed;
-        width: 60px;
-        height: 60px;
-        bottom: 20px;
-        right: 20px;
-        background-color: #25d366;
-        color: #FFF;
-        border-radius: 50px;
-        text-align: center;
-        font-size: 30px;
-        box-shadow: 2px 2px 3px #999;
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-    }}
-    </style>
-    <a href="{+5543991533162}" class="float-wa" target="_blank">
-        <img src="https://img.icons8.com/color/48/whatsapp--v1.png" width="35"/>
+    <a href="{link_whatsapp_final}" target="_blank" style="text-decoration: none;">
+        <div style="background-color: #25D366; color: white; padding: 15px; text-align: center; border-radius: 12px; font-weight: bold; font-size: 1.1em; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1);">
+            <img src="https://img.icons8.com/color/48/whatsapp--v1.png" width="25"/>
+            Falar com Suporte via WhatsApp
+        </div>
     </a>
 ''', unsafe_allow_html=True)
-
 
