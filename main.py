@@ -66,15 +66,28 @@ st.markdown("""
     </div>
     """, unsafe_allow_html=True)
 
-# Botão de Pagamento Estilizado (Coloque seu link do Asaas abaixo)
-link_asaas = "SEU_LINK_DO_ASAAS_AQUI"
+# Seção de Venda Profissional
+st.write("---")
+st.markdown("""
+    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 5px solid #28a745;">
+        <h3 style="color: #1d1d1d; margin-top: 0;">🚀 Relatório IZEN Pro</h3>
+        <p style="color: #444;">Receba agora o passo a passo detalhado para preencher sua declaração sem erros e evitar a malha fina.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+# O seu link do PagBank aqui
+link_pagbank = "https://pag.ae/81sAJrK-p" 
+
+st.write("")
+
+# Botão Estilizado com as cores de confiança
 st.markdown(f'''
-    <a href="{link_asaas}" target="_blank" style="text-decoration: none;">
-        <div style="background-color: #0066FF; color: white; padding: 18px; text-align: center; border-radius: 10px; font-weight: bold; font-size: 18px; box-shadow: 0px 4px 15px rgba(0, 102, 255, 0.3);">
-            ADQUIRIR GUIA DE DECLARAÇÃO (PDF)
+    <a href="{link_pagbank}" target="_blank" style="text-decoration: none;">
+        <div style="background-color: #28a745; color: white; padding: 18px; text-align: center; border-radius: 10px; font-weight: bold; font-size: 1.2em; box-shadow: 0px 4px 10px rgba(40, 167, 69, 0.3);">
+            ✅ ADQUIRIR RELATÓRIO POR R$ 29,90
         </div>
     </a>
 ''', unsafe_allow_html=True)
 
-st.write("")
-st.caption("🔒 Ambiente seguro. Processamento de dados via IZEN Intelligence.")
+st.markdown("<p style='text-align: center; font-size: 0.8em; color: gray; margin-top: 10px;'>Pagamento seguro via PagBank</p>", unsafe_allow_html=True)
+
