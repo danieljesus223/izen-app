@@ -93,7 +93,38 @@ with col_list2:
     st.markdown("- [ ] Conta Gov.br (Ouro ou Prata)")
 
 st.info("💡 Não tem tudo em mãos? Fique tranquilo, nosso especialista ajudará você a organizar cada documento.")
+st.write("---")
+st.markdown("### 💎 Investimento na sua Tranquilidade")
 
+c1, c2, c3 = st.columns(3)
+
+with c1:
+    st.markdown("""
+    <div style="border: 1px solid #333; padding: 15px; border-radius: 10px; text-align: center;">
+        <p style="font-size: 12px; color: #888;">ESSENCIAL</p>
+        <h4 style="margin: 0;">R$ 147</h4>
+        <p style="font-size: 11px;">Apenas IRPF</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with c2:
+    st.markdown("""
+    <div style="border: 2px solid #00ffa3; padding: 15px; border-radius: 10px; text-align: center; background: rgba(0,255,163,0.05);">
+        <p style="font-size: 12px; color: #00ffa3;">POPULAR</p>
+        <h4 style="margin: 0;">R$ 247</h4>
+        <p style="font-size: 11px;">IRPF + DASN-SIMEI</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+with c3:
+    st.markdown("""
+    <div style="border: 1px solid #333; padding: 15px; border-radius: 10px; text-align: center;">
+        <p style="font-size: 12px; color: #888;">FULL</p>
+        <h4 style="margin: 0;">R$ 397</h4>
+        <p style="font-size: 11px;">Completo + VIP</p>
+    </div>
+    """, unsafe_allow_html=True)
+    
 
 st.write("")
 link_wa = "https://wa.me/5543991533162?text=Olá!%20Fiz%20meu%20diagnóstico%20no%20IZEN%20e%20preciso%20de%20ajuda%20com%20minha%20declaração."
