@@ -1,120 +1,126 @@
 import streamlit as st
 import pandas as pd
 
+# Configuração de Página Premium
+st.set_page_config(page_title="IZEN - Shield Your Profit", page_icon="🛡️", layout="centered")
 
-
-
-# Configuração de Alta Qualidade
-st.set_page_config(page_title="IZEN - Inteligência Financeira", page_icon="🛡️", layout="centered")
-
-# CSS Personalizado para interface Premium
+# CSS Avançado - Design de Elite
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
-    html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
-    .main { background-color: #0e1117; }
-    div[data-testid="stMetricValue"] { font-size: 28px; color: #00ffa3; }
-    .stButton>button { width: 100%; border-radius: 8px; height: 3em; background-color: #0066FF; color: white; border: none; font-weight: bold; transition: 0.3s; }
-    .stButton>button:hover { background-color: #0052cc; border: none; color: white; }
-    .report-card { background-color: #161b22; padding: 20px; border-radius: 12px; border: 1px solid #30363d; margin-bottom: 20px; }
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+    
+    * { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    .main { background-color: #050505; }
+    
+    /* Card Principal de Resultado */
+    .premium-card {
+        background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        padding: 30px;
+        border-radius: 24px;
+        border: 1px solid #333;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    
+    /* Estilização das Métricas */
+    div[data-testid="stMetricValue"] {
+        color: #00ffa3 !important;
+        font-weight: 800 !important;
+        font-size: 36px !important;
+    }
+    
+    /* Botão de Pagamento Estilo Apple */
+    .btn-buy {
+        background: linear-gradient(90deg, #0066FF 0%, #00CCFF 100%);
+        color: white !important;
+        padding: 20px;
+        text-align: center;
+        border-radius: 16px;
+        font-weight: 800;
+        font-size: 20px;
+        text-decoration: none;
+        display: block;
+        transition: all 0.4s ease;
+        box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4);
+    }
+    .btn-buy:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 102, 255, 0.6);
+    }
+
+    /* Input Styling */
+    .stNumberInput, .stSelectbox {
+        background-color: #111 !important;
+        border-radius: 12px !important;
+    }
     </style>
     """, unsafe_allow_html=True)
 
-# Topo do App
-st.image("https://img.icons8.com/fluency/96/shield-with-check.png", width=60)
-st.title("IZEN")
-st.markdown("##### *Inteligência em Isenção para MEI*")
-st.write("---")
+# --- HEADER ---
+st.markdown("<h1 style='text-align: center; color: white; font-size: 50px;'>🛡️ IZEN</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #888; font-size: 18px;'>Inteligência em Isenção Fiscal para MEI</p>", unsafe_allow_html=True)
+st.write("")
 
-# Área de Cálculo (Interface Limpa)
+# --- INPUTS ---
 with st.container():
-    st.markdown("### 📝 Dados da sua Empresa")
-    col_a, col_b = st.columns(2)
-    with col_a:
-        faturamento = st.number_input("Faturamento Bruto Anual", min_value=0.0, value=50000.0, help="Soma de todas as suas vendas/serviços no ano.")
-    with col_b:
-        tipo = st.selectbox("Atividade Principal", ["Prestação de Serviços", "Comércio / Indústria", "Transporte de Passageiros"])
+    col_in1, col_in2 = st.columns(2)
+    with col_in1:
+        faturamento = st.number_input("Faturamento Anual 2025", min_value=0.0, value=60000.0, step=1000.0)
+    with col_in2:
+        tipo = st.selectbox("Atividade", ["Serviços (32%)", "Comércio (8%)", "Transporte (16%)"])
 
-# Lógica de Cálculo
-percentuais = {"Prestação de Serviços": 0.32, "Comércio / Indústria": 0.08, "Transporte de Passageiros": 0.16}
-perc = percentuais[tipo]
+# Lógica
+perc = 0.32 if "32" in tipo else 0.16 if "16" in tipo else 0.08
 isento = faturamento * perc
 tributavel = faturamento - isento
 
-# Dashboard Visual
-st.markdown("### 📊 Resultado da Análise")
-col1, col2 = st.columns(2)
-with col1:
-    st.metric("Lucro Isento", f"R$ {isento:,.2f}")
-    st.caption("✅ Livre de impostos")
-with col2:
-    st.metric("Lucro Tributável", f"R$ {tributavel:,.2f}")
-    st.caption("⚠️ Base de cálculo do IR")
+# --- DASHBOARD PREMIUM ---
+st.markdown(f"""
+    <div class="premium-card">
+        <p style="color: #888; margin-bottom: 5px; font-size: 14px; text-transform: uppercase; letter-spacing: 2px;">Lucro Isento Detectado</p>
+        <h2 style="color: #00ffa3; font-size: 52px; margin: 0;">R$ {isento:,.2f}</h2>
+        <p style="color: #555; font-size: 14px; margin-top: 10px;">Este valor está protegido e não sofrerá tributação de IRPF.</p>
+    </div>
+    """, unsafe_allow_html=True)
 
-
-
-# Gráfico de Alta Qualidade (Ajustado para evitar erro de cor)
-st.write("")
-df_viz = pd.DataFrame({
-    "Categoria": ["Livre de IR", "Sujeito a IR"], 
-    "Valor": [isento, tributavel]
-})
-
-# Usando o gráfico de barras com uma cor sólida elegante ou automática
+# --- GRÁFICO ---
+st.write("#### ⚖️ Composição de Rendimentos")
+df_viz = pd.DataFrame({"Categoria": ["Livre de IR", "Tributável"], "Valor": [isento, tributavel]})
 st.bar_chart(df_viz, x="Categoria", y="Valor", color="#0066FF")
 
-# Seção de Valor Agregado
-with st.expander("💡 Como essa regra funciona?"):
-    st.write(f"De acordo com a Receita Federal, para a sua atividade de **{tipo}**, presume-se que **{perc*100:.0f}%** do seu faturamento seja lucro isento. O restante é considerado rendimento tributável, a menos que você tenha contabilidade completa.")
-
-# Chamada para o Relatório PRO
-st.write("---")
-st.markdown("""
-    <div class='report-card'>
-        <h3 style='color: #0066FF; margin-top: 0;'>🚀 Obtenha seu Relatório IZEN Pro</h3>
-        <p>Não corra riscos com a malha fina. Receba o guia detalhado de preenchimento para sua declaração.</p>
-    </div>
+# --- ÁREA DE VENDAS PRO ---
+st.write("")
+with st.container():
+    st.markdown("""
+        <div style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 20px; border: 1px dashed #444;">
+            <h4 style="color: #fff; margin-top:0;">💎 Upgrade para IZEN Pro</h4>
+            <p style="color: #aaa; font-size: 15px;">A Receita Federal exige o preenchimento correto de 3 fichas diferentes. Errar um campo pode custar <b>R$ 165,74</b> em multa mínima.</p>
+            <ul style="color: #888; font-size: 14px;">
+                <li>Guia passo a passo em PDF</li>
+                <li>Códigos oficiais das fichas</li>
+                <li>Suporte prioritário via WhatsApp</li>
+            </ul>
+        </div>
     """, unsafe_allow_html=True)
+    
+    st.write("")
+    
+    # LINKS (Substitua pelos seus)
+    link_pagbank = "SEU_LINK_PAGBANK"
+    link_wa = "https://wa.me/5543991533162?text=Preciso%20de%20ajuda%20com%20o%20IZEN"
 
-# Seção de Venda Profissional
-st.write("---")
-st.markdown("""
-    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 12px; border-left: 5px solid #28a745;">
-        <h3 style="color: #1d1d1d; margin-top: 0;">🚀 Relatório IZEN Pro</h3>
-        <p style="color: #444;">Receba agora o passo a passo detalhado para preencher sua declaração sem erros e evitar a malha fina.</p>
-    </div>
+    st.markdown(f'<a href="{link_pagbank}" class="btn-buy">LIBERAR RELATÓRIO COMPLETO →</a>', unsafe_allow_html=True)
+    
+    st.write("")
+    st.markdown(f"""
+        <div style="text-align: center;">
+            <a href="{link_wa}" style="color: #25D366; text-decoration: none; font-size: 14px; font-weight: 600;">
+                Dúvidas? Fale com um especialista no WhatsApp
+            </a>
+        </div>
     """, unsafe_allow_html=True)
-
-# O seu link do PagBank aqui
-link_pagbank = "https://pag.ae/81sAJrK-p" 
 
 st.write("")
-
-# Botão Estilizado com as cores de confiança
-st.markdown(f'''
-    <a href="{link_pagbank}" target="_blank" style="text-decoration: none;">
-        <div style="background-color: #28a745; color: white; padding: 18px; text-align: center; border-radius: 10px; font-weight: bold; font-size: 1.2em; box-shadow: 0px 4px 10px rgba(40, 167, 69, 0.3);">
-            ✅ ADQUIRIR RELATÓRIO POR R$ 29,90
-        </div>
-    </a>
-''', unsafe_allow_html=True)
-
-st.markdown("<p style='text-align: center; font-size: 0.8em; color: gray; margin-top: 10px;'>Pagamento seguro via PagBank</p>", unsafe_allow_html=True)
-
-
-# Certifique-se de colocar o seu número onde diz SEUNUMERO (ex: 5511999999999)
-seu_numero_limpo = "5543991533162" # Apenas números: Código País + DDD + Número
-mensagem_automatica = "Olá! Tenho uma dúvida sobre o IZEN."
-
-# Criando o link correto para mobile
-link_whatsapp_final = f"https://wa.me/{seu_numero_limpo}?text={mensagem_automatica.replace(' ', '%20')}"
-
-st.markdown(f'''
-    <a href="{link_whatsapp_final}" target="_blank" style="text-decoration: none;">
-        <div style="background-color: #25D366; color: white; padding: 15px; text-align: center; border-radius: 12px; font-weight: bold; font-size: 1.1em; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0px 4px 10px rgba(0,0,0,0.1);">
-            <img src="https://img.icons8.com/color/48/whatsapp--v1.png" width="25"/>
-            Falar com Suporte via WhatsApp
-        </div>
-    </a>
-''', unsafe_allow_html=True)
-
+st.caption("© 2026 IZEN Intelligence - Tecnologia de Proteção Fiscal")
