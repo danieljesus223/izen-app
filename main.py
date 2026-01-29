@@ -77,6 +77,24 @@ with col_b:
     st.markdown("✅ **Proteção Anti-Malha Fina**")
     st.markdown("✅ **Recibo de Entrega**")
 
+
+st.write("---")
+st.markdown("#### 📑 O que vamos precisar para sua Assessoria:")
+col_list1, col_list2 = st.columns(2)
+
+with col_list1:
+    st.markdown("- [ ] CNPJ do MEI")
+    st.markdown("- [ ] Relatório de Faturamento")
+    st.markdown("- [ ] Comprovantes de Despesas")
+
+with col_list2:
+    st.markdown("- [ ] Informe Bancário")
+    st.markdown("- [ ] CPF e Título de Eleitor")
+    st.markdown("- [ ] Conta Gov.br (Ouro ou Prata)")
+
+st.info("💡 Não tem tudo em mãos? Fique tranquilo, nosso especialista ajudará você a organizar cada documento.")
+
+
 st.write("")
 link_wa = "https://wa.me/5543991533162?text=Olá!%20Fiz%20meu%20diagnóstico%20no%20IZEN%20e%20preciso%20de%20ajuda%20com%20minha%20declaração."
 st.markdown(f'<a href="{link_wa}" class="btn-wa">FALAR COM ESPECIALISTA AGORA</a>', unsafe_allow_html=True)
