@@ -48,10 +48,17 @@ with col2:
     st.metric("Lucro Tributável", f"R$ {tributavel:,.2f}")
     st.caption("⚠️ Base de cálculo do IR")
 
-# Gráfico de Alta Qualidade
+
+
+# Gráfico de Alta Qualidade (Ajustado para evitar erro de cor)
 st.write("")
-df_viz = pd.DataFrame({"Status": ["Livre de IR", "Sujeito a IR"], "Valor": [isento, tributavel]})
-st.bar_chart(df_viz.set_index("Status"), color=["#00ffa3", "#ff4b4b"])
+df_viz = pd.DataFrame({
+    "Categoria": ["Livre de IR", "Sujeito a IR"], 
+    "Valor": [isento, tributavel]
+})
+
+# Usando o gráfico de barras com uma cor sólida elegante ou automática
+st.bar_chart(df_viz, x="Categoria", y="Valor", color="#0066FF")
 
 # Seção de Valor Agregado
 with st.expander("💡 Como essa regra funciona?"):
