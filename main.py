@@ -1,39 +1,62 @@
 import streamlit as st
 import pandas as pd
 
-# Configuração da página
-st.set_page_config(page_title="IZEN - Inteligência em Isenção", layout="centered")
+# Configuração de página
+st.set_page_config(page_title="IZEN - Inteligência em Isenção", page_icon="🛡️")
 
-st.title("💰 IZEN")
-st.subheader("O Escudo do seu Lucro MEI")
+# Estilo customizado para o botão e textos
+st.markdown("""
+    <style>
+    .main { background-color: #0e1117; }
+    .stMetric { background-color: #161b22; padding: 15px; border-radius: 10px; border: 1px solid #30363d; }
+    </style>
+    """, unsafe_allow_html=True)
 
-# Entrada de dados
-faturamento = st.number_input("Quanto você faturou no ano? (R$)", min_value=0.0, value=10000.0, step=1000.0)
-servico = st.checkbox("Meu negócio é Prestação de Serviços")
+st.title("🛡️ IZEN")
+st.write("### O Escudo Digital do seu Lucro MEI")
 
-# Lógica de cálculo (Regras da Receita Federal)
-percentual = 0.32 if servico else 0.08
-lucro_isento = faturamento * percentual
-lucro_tributavel = faturamento - lucro_isento
+# Input de dados
+with st.container():
+    st.write("---")
+    faturamento = st.number_input("Quanto você faturou no total (Anual)?", min_value=0.0, value=50000.0, step=1000.0)
+    tipo = st.selectbox("Qual a sua atividade principal?", ["Serviços (32%)", "Comércio / Indústria (8%)", "Transporte de Passageiros (16%)"])
 
-# Exibição dos resultados em cards
+# Cálculo de Isenção
+if "32%" in tipo: perc = 0.32
+elif "16%" in tipo: perc = 0.16
+else: perc = 0.08
+
+isento = faturamento * perc
+tributavel = faturamento - isento
+
+# Dashboard de Resultados
 col1, col2 = st.columns(2)
-col1.metric("Lucro Isento (Protegido)", f"R$ {lucro_isento:,.2f}")
-col2.metric("Lucro Tributável", f"R$ {lucro_tributavel:,.2f}")
+with col1:
+    st.metric("Lucro Isento (Livre de IR)", f"R$ {isento:,.2f}")
+    st.caption("Este valor não paga imposto.")
+with col2:
+    st.metric("Base Tributável", f"R$ {tributavel:,.2f}")
+    st.caption("Valor sujeito ao ajuste anual.")
 
-# Gráfico Nativo (Super leve)
-st.write("### 📊 Visão Geral do seu Capital")
-dados_grafico = pd.DataFrame({
-    'Tipo': ['Isento', 'Tributável'],
-    'Valores': [lucro_isento, lucro_tributavel]
-}).set_index('Tipo')
+# Gráfico de composição
+st.write("#### 📊 Composição do seu Faturamento")
+df = pd.DataFrame({'Status': ['Livre de Imposto', 'Sujeito a Imposto'], 'Valor': [isento, tributavel]})
+st.bar_chart(df.set_index('Status'))
 
-st.bar_chart(dados_grafico)
+# Tabela Explicativa (O Toque de Autoridade)
+with st.expander("🔍 Ver Regras da Receita Federal"):
+    st.write("""
+    | Atividade | Percentual de Isenção |
+    | :--- | :--- |
+    | **Serviços em geral** | 32% do faturamento bruto |
+    | **Transporte de Passageiros** | 16% do faturamento bruto |
+    | **Comércio e Indústria** | 8% do faturamento bruto |
+    """)
 
-# Seção de Venda
+# Seção de Venda (Call to Action)
 st.divider()
-st.info("💡 Você sabia? Com a escrituração correta, você pode transformar quase todo seu lucro em isento.")
-if st.button("🚀 Liberar Relatório Completo para o IRPF"):
-    st.warning("PIX Copia e Cola Gerado: 00020126580014br.gov.bcb.pix...")
-    st.write("Envie o comprovante de R$ 29,90 para liberar seu PDF oficial.")
-  
+st.write("### 🚀 Quer o relatório pronto para o IRPF?")
+if st.button("GERAR DECLARAÇÃO COMPLETA (PDF)"):
+    st.balloons()
+    st.info("O IZEN Pro gera o passo a passo da sua Declaração de IR por apenas **R$ 29,90**.")
+    st.write("**PIX de Pagamento:** `seu-email-ou-chave-aqui` ")
