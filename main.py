@@ -125,7 +125,7 @@ st.markdown(f'''
         text-decoration: none;
     }}
     </style>
-    <a href="{+55 43 991533162}" class="float-wa" target="_blank">
+    <a href="{+5543991533162}" class="float-wa" target="_blank">
         <img src="https://img.icons8.com/color/48/whatsapp--v1.png" width="35"/>
     </a>
 ''', unsafe_allow_html=True)
