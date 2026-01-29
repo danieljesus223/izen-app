@@ -1,37 +1,36 @@
 import streamlit as st
 import pandas as pd
 
+# --- CONFIGURAÇÃO DO LINK ---
+link_app = "https://izen-app.streamlit.app"  # Certifique-se de que este é o seu link oficial
 
-    # --- BARRA LATERAL (SIDEBAR) ---
+# --- BARRA LATERAL (SIDEBAR) ---
 with st.sidebar:
     st.markdown("<h2 style='text-align: center;'>🛡️ IZEN</h2>", unsafe_allow_html=True)
     st.markdown("---")
     
-    st.markdown("### 📲 Instalar App")
-    st.write("Tenha a nossa consultoria de bolso sempre disponível na sua tela inicial.")
+    st.markdown("### 📲 Leve para o Celular")
+    st.write("Aponte a câmera para instalar o IZEN no seu smartphone:")
     
-    # Instruções Visuais dentro da lateral
-    with st.expander("Como instalar?", expanded=False):
+    # Gerador automático de QR Code usando a API do Google
+    qr_url = f"https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={link_app}"
+    st.image(qr_url, caption="Escaneie para acessar", use_container_width=True)
+    
+    st.markdown("---")
+    st.markdown("### ⚙️ Instalação")
+    with st.expander("Passo a Passo", expanded=False):
         st.markdown("""
-            **No iPhone:**
-            1. Abra no Safari
-            2. Clique em **Compartilhar** ⬆️
-            3. **Adicionar à Tela de Início**
+            **iPhone:** Compartilhar ⬆️ > Tela de Início
             
-            **No Android:**
-            1. Clique nos **3 pontos** ⋮
-            2. **Instalar aplicativo** ou **Adicionar à tela inicial**
+            **Android:** 3 Pontos ⋮ > Instalar App
         """)
     
     st.write("---")
-    st.markdown("### 📞 Suporte Direto")
-    st.info("Dúvidas técnicas? Use o botão do WhatsApp na tela principal ou fale conosco por aqui.")
-    
-    # Botão de Download Visual na lateral
-    if st.sidebar.button("📥 Gerar Atalho"):
-        st.toast("Siga as instruções acima!")
+    st.caption("IZEN Intelligence v2.0")
 
-# --- FIM DA BARRA LATERAL ---
+    
+    
+    
 
 
 # Configuração de Página Premium
