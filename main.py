@@ -5,45 +5,32 @@ import pandas as pd
 link_app = "https://izen-app.streamlit.app"  # Certifique-se de que este é o seu link oficial
  v2.0")
 
-    # --- BARRA LATERAL (SIDEBAR) SIMPLIFICADA ---
+ # --- BARRA LATERAL (SIDEBAR) CORRIGIDA ---
 with st.sidebar:
     st.markdown("<h2 style='text-align: center;'>🛡️ IZEN</h2>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center; color: #888;'>Assessoria Fiscal Premium</p>", unsafe_allow_html=True)
     st.markdown("---")
     
     st.markdown("### 📲 Instalar no Celular")
-    st.write("Transforme o IZEN em um aplicativo na sua tela inicial:")
-    
-    # Instruções diretas e limpas
     with st.expander("Ver instruções", expanded=True):
         st.markdown("""
-            **No iPhone:**
-            1. Abra no Safari
-            2. Toque em **Compartilhar** ⬆️
-            3. **Adicionar à Tela de Início**
-            
-            **No Android:**
-            1. Toque nos **3 pontos** ⋮
-            2. **Instalar aplicativo** ou **Adicionar à tela inicial**
+**No iPhone:**
+1. Abra no Safari
+2. Toque em **Compartilhar** ⬆️
+3. **Adicionar à Tela de Início**
+
+**No Android:**
+1. Toque nos **3 pontos** ⋮
+2. **Instalar aplicativo**
         """)
     
     st.markdown("---")
     st.markdown("### 💬 Suporte")
-    st.write("Precisa de ajuda com os documentos?")
+    link_wa_lateral = "https://wa.me/5543991533162?text=Preciso%20de%20suporte%20técnico"
+    st.markdown(f'<a href="{link_wa_lateral}" style="text-decoration:none;"><div style="background-color:#111;color:#00ffa3;padding:10px;text-align:center;border-radius:8px;border:1px solid #00ffa3;font-weight:bold;">Falar com Especialista</div></a>', unsafe_allow_html=True)
     
-    link_wa_lateral = "https://wa.me/5543991533162?text=Preciso%20de%20suporte%20técnico%20com%20o%20IZEN"
-    st.markdown(f'''
-        <a href="{link_wa_lateral}" style="text-decoration: none;">
-            <div style="background-color: #111; color: #00ffa3; padding: 10px; text-align: center; border-radius: 8px; border: 1px solid #00ffa3; font-weight: bold; font-size: 14px;">
-                Falar com Especialista
-            </div>
-        </a>
-    ''', unsafe_allow_html=True)
-
     st.markdown("---")
     st.caption("v2.1.0 | 2026 © IZEN")
-
-    
 
 # Configuração de Página Premium
 st.set_page_config(page_title="IZEN - Assessoria Fiscal", page_icon="🛡️", layout="centered")
