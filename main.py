@@ -89,3 +89,30 @@ st.write("---")
 # BOTÃO WHATSAPP FINAL
 link_wa = "https://wa.me/5543991533162?text=Fiz%20meu%20diagnóstico%20e%20quero%20começar"
 st.markdown(f'<a href="{link_wa}" class="btn-wa">FALAR COM ESPECIALISTA AGORA</a>', unsafe_allow_html=True)
+
+st.write("---")
+st.markdown("### 🛠️ Outras Soluções Especializadas IZEN")
+
+with st.expander("📝 Gestão e Obrigações"):
+    st.write("""
+    * **DASN-SIMEI:** Declaração anual de faturamento.
+    * **Parcelamento:** Regularização de impostos em atraso.
+    * **Baixa/Alteração:** Mudanças no seu contrato ou encerramento.
+    * **Notas Fiscais:** Gestão e emissão profissional de notas.
+    """)
+
+with st.expander("📊 Financeiro e Renda"):
+    st.write("""
+    * **Comprovação de Renda:** Pró-labore oficial para bancos.
+    * **Relatório Mensal:** Organização de receitas para fiscalização.
+    * **Restituição:** Recuperação de impostos pagos a mais (Monofásicos).
+    """)
+
+with st.expander("🚀 Crescimento e Suporte"):
+    st.write("""
+    * **Desenquadramento:** Migração segura de MEI para ME.
+    * **Conta Gov.br:** Suporte para níveis Ouro/Prata.
+    * **Alvarás:** Consultoria para licenças e dispensas.
+    """)
+
+
