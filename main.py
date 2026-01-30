@@ -8,7 +8,7 @@ st.set_page_config(page_title="IZEN - Assessoria Fiscal", page_icon="🛡️", l
 # Cole seus links do PagSeguro entre as aspas quando estiverem prontos
 link_pag_147 = "https://pag.ae/81sCwqFwa "# Plano Essencial
 link_pag_247 = "https://pag.ae/81sCBaYTR" # Plano Popular
-link_pag_397 = ""https://pag.ae/81sCCiZMa # Plano Full
+link_pag_397 = "https://pag.ae/81sCCiZMa"# Plano Full
 
 # 3. ESTILO CSS (Design Luxo Dark)
 st.markdown("""
